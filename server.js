@@ -20,8 +20,16 @@ fastify.get('/', async (request, reply) => {
 fastify.get('/add', async (request, reply) => {
   try {
     await client.connect();
-    let deckId = await client.db("NSSiteVisit").collection('deck').insertOne({player: "Andrew", commander: "Bahamut", w:true, u: false, b: false, r: false, g: false, strategy:["Initiative", "Tokens"], power: 5});
-    return { deckId: deckId }
+    /*let deckId = await client.db("NSSiteVisit").collection('deck').insertMany([
+		{ player: "Andrew", commander: "Sidar & Ikra", w: true, u: false, b: true, r: false, g: true, strategy: ["Lifegain"], power: 6 },
+		{ player: "Brian", commander: "Meren", w: false, u: false, b: true, r: false, g: true, strategy: ["Reanimator"], power: 7 },
+		{ player: "Brian", commander: "Perrie", w: true, u: true, b: false, r: false, g: true, strategy: ["Counters", "Control"], power: 6 },
+		{ player: "Stamm", commander: "Mazzy", w: true, u: false, b: false, r: true, g: true, strategy: ["Enchantress"], power: 7 },
+		{ player: "Stamm", commander: "Alexi", w: false, u: true, b: false, r: false, g: false, strategy: ["Control"], power: 4 },
+		{ player: "Olivier", commander: "Kamiz", w: true, u: true, b: true, r: false, g: false, strategy: ["Reanimator"], power: 7 },
+		{ player: "Olivier", commander: "Faldorn", w: false, u: false, b: false, r: true, g: true, strategy: ["Exile", "Tokens"], power: 6 }
+	]);
+    return { deckId: deckId }*/
   } finally {
     await client.close();
   }
